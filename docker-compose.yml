@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  tower:
+    image: "com.mars/simulator-sample:${VERSION:-latest}"
+    build:
+      context: .
+      args:
+        - SSH_PRIVATE_KEY
+    volumes:
+      - ${RUNDIR:-./rundir}:/workdir
+    working_dir: /workdir
+    command: ["java", "-cp", "/app/simulator.jar", "--enable-preview", "-Djava.util.logging.config.file=jdk14logger.properties", "mars.tower.samples.Tower1", "rabbit"]
+    depends_on:
+      - "rabbit"
+  mc1:
+    image: "com.mars/simulator-sample:${VERSION:-latest}"
+    build:
+      context: .
+      args:
+        - SSH_PRIVATE_KEY
+    volumes:
+      - ${RUNDIR:-./rundir}:/workdir
+    working_dir: /workdir
+    command: ["java", "-cp", "/app/simulator.jar", "--enable-preview", "-Djava.util.logging.config.file=jdk14logger.properties", "mars.mc.samples.Mc1", "MC1", "rabbit"]
+    depends_on:
+      - "rabbit"
+  plt1:
+    image: "com.mars/simulator-sample:${VERSION:-latest}"
+    build:
+      context: .
+      args:
+        - SSH_PRIVATE_KEY
+    volumes:
+      - ${RUNDIR:-./rundir}:/workdir
+    working_dir: /workdir
+    command: ["java", "-cp", "/app/simulator.jar", "--enable-preview", "-Djava.util.logging.config.file=jdk14logger.properties", "mars.platform.sim.PlatformMain", "PLT1", "plt1.json", "rabbit"]
+    depends_on:
+      - "rabbit"
+  rabbit:
+    image: "rabbitmq"

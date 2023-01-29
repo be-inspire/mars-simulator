@@ -1,0 +1,11 @@
+<project xmlns="http://maven.apache.org/DECORATION/1.7.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.7.0 http://maven.apache.org/xsd/decoration-1.7.0.xsd"
+         name="M.A.R.S. platform-lib Maven Site">     <!-- name attribute defines title of the site -->
+
+    <body>
+        <menu name="Pages">
+            <item name="MC impl" href="implementazione_mission_controller.html" />
+        </menu>
+    </body>
+</project>

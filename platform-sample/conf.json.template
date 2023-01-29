@@ -1,0 +1,15 @@
+{
+	"geoCoord": {
+		"lon": 8,
+		"lat": 44
+	},
+	"serviceMillis": 90000,
+	"bays": [
+		{
+			"payloadType": "PT1",
+			"chargePerSecond": 0.02,
+			"prepareMillis": 45000,
+			"number": 10
+		}
+	]
+}
